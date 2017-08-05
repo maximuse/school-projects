@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Factorial</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<form onsubmit="return false">
+			<label for="number">Number:</label>
+			<input type="number" min="0" id="number" name="number" placeholder="number" autofocus />
+			<input type="submit" id="submit" name="submit" value="Count" onclick="counter()" />
+			<div id="result"></div>
+		</form>
+		
+		<script>
+			function counter() {
+				if(document.getElementById("number").value=="") {
+					alert("Enter a number!");
+					document.getElementById("number").focus();
+				}
+				else if(document.getElementById("number").value<=1) {
+					document.getElementById("result").innerHTML = document.getElementById("number").value + "! = 1";
+				}
+				else {
+					var n = parseInt(document.getElementById("number").value),
+						c = "",
+						r = 1;
+					
+					for(var i=1; i<=n; i++) {
+						if(c=="") {
+							c += i;
+							r *= i;
+						}
+						else {
+							c += " * "+i;
+							r *= i;
+						}
+					}
+					
+					document.getElementById("result").innerHTML = n + "! = " + r + "<br />" + c + " = " + r;
+				}
+			}
+		</script>
+	</body>
+</html>
