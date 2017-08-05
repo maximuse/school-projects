@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="hu-HU" dir="ltr">
+	<head>
+		<title>Gauss-theory</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<script>
+			function counter() {
+				if(document.getElementById("number").value!="") {
+					var r = 0,
+						n = parseInt(document.getElementById("number").value);
+					
+					r = (n*(n+1))/2;
+					document.getElementById("result").innerHTML = r;
+				}
+			}
+		</script>
+		<form method="post" onchange="counter()" onkeydown="counter()" onkeyup="counter()">
+			<input type="number" id="number" name="number" value="" placeholder="number" />
+			<!--<input type="button" id="button" name="button" value="Count" onclick="counter()" />-->
+			<span id="result"></span>
+		</form>
+	</body>
+</html>
