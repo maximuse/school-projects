@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fibonacci</title>
+		<meta charset="utf-8" />
+		<style>
+			body{font:normal 16px courier}
+		</style>
+	</head>
+	<body>
+		<script>
+			var a = 0,
+				b = 1,
+				c,
+				i;
+			
+			document.writeln("&nbsp;&nbsp;&nbsp;0. &rarr; "+a+"<br />");
+			for(i=1; i<=1000; i++) {
+				c=a+b;
+				a=c;
+				b=c-b;
+				
+				//document.writeln("a="+a+"<br />");
+				//document.writeln("b="+b+"<br />");
+				//document.writeln("c="+c+"<br /><br />");
+				//document.writeln(c+"<br />");
+				if(i<=9) {
+					document.writeln("&nbsp;&nbsp;&nbsp;"+i+". &rarr; "+c+"<br />");
+				}
+				else if(i<=99) {
+					document.writeln("&nbsp;&nbsp;"+i+". &rarr; "+c+"<br />");
+				}
+				else if(i<=999) {
+					document.writeln("&nbsp;"+i+". &rarr; "+c+"<br />");
+				}
+				else {
+					document.writeln(i+". &rarr; "+c+"<br />");
+				}
+			}
+		</script>
+	</body>
+</html>
