@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hu-HU" dir="ltr">
+	<head>
+		<title>Triangle</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<script>
+			function triangle() {
+				var a = document.getElementById('a').value,
+					b = document.getElementById('b').value,
+					c = document.getElementById('c').value;
+				
+				if(a!='' && b!='' && c!='') {
+					a = parseInt(a);
+					b = parseInt(b);
+					c = parseInt(c);
+					
+					document.getElementById('span').innerHTML = '';
+					document.getElementById('a').style.background = 'rgb(255,255,255)';
+					document.getElementById('b').style.background = 'rgb(255,255,255)';
+					document.getElementById('c').style.background = 'rgb(255,255,255)';
+					
+					if(b+c>a && a+c>b && a+b>c) {
+						if(a*a+b*b==c*c || a*a+c*c==b*b || b*b+c*c==a*a) {
+							document.getElementById('span').innerHTML = 'The right triangle can be edited!';
+						}
+						else {
+							document.getElementById('span').innerHTML = 'The triangle can be edited!';
+						}
+					}
+					else {
+						document.getElementById('span').innerHTML = 'The triangle cannot be edited!';
+					}
+				}
+				else {
+					if(a=='') {
+						document.getElementById('a').style.background = 'rgba(255,0,0,0.1)';
+					}
+					else {
+						document.getElementById('a').style.background = 'rgb(255,255,255)';
+					}
+					
+					if(b=='') {
+						document.getElementById('b').style.background = 'rgba(255,0,0,0.1)';
+					}
+					else {
+						document.getElementById('b').style.background = 'rgb(255,255,255)';
+					}
+					
+					if(c=='') {
+						document.getElementById('c').style.background = 'rgba(255,0,0,0.1)';
+					}
+					else {
+						document.getElementById('c').style.background = 'rgb(255,255,255)';
+					}
+				}
+			}
+		</script>
+		<div>
+			<span id="span"></span>
+		</div>
+		<form method="post" name="form" id="form">
+			<label for="a">a:</label>
+			<input type="number" id="a" name="a" placeholder="a" /><br />
+			<label for="b">b:</label>
+			<input type="number" id="b" name="b" placeholder="b" /><br />
+			<label for="c">c:</label>
+			<input type="number" id="c" name="c" placeholder="c" /><br /><br />
+			<input type="button" id="button" name="button" value="Count!" onclick="triangle()" />
+		</form>
+	</body>
+</html>
