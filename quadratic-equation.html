@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hu-HU" dir="ltr">
+	<head>
+		<title>Quadratic equation</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<script>
+			function equation() {
+				var a = document.getElementById('a').value,
+					b = document.getElementById('b').value,
+					c = document.getElementById('c').value,
+					d,
+					x1,
+					x2;
+				
+				if(a!='' && b!='' && c!='') {
+					document.getElementById('error').innerHTML = "";
+					document.getElementById('x1').innerHTML = "";
+					document.getElementById('x2').innerHTML = "";
+					document.getElementById('a').style.background = 'rgb(255,255,255)';
+					document.getElementById('b').style.background = 'rgb(255,255,255)';
+					document.getElementById('c').style.background = 'rgb(255,255,255)';
+					
+					a = parseInt(a);
+					b = parseInt(b);
+					c = parseInt(c);
+					
+					d = b * b - 4 * a * c;
+					
+					if(d<0) {
+						document.getElementById('error').innerHTML = "The equation has no solution!";
+					}
+					else {
+						x1 = -1 * b + Math.sqrt(d) / 2 * a;
+						x2 = -1 * b - Math.sqrt(d) / 2 * a;
+						
+						document.getElementById('x1').innerHTML = "X1 = " + x1 + "<br />";
+						document.getElementById('x2').innerHTML = "X2 = " + x2 + "<br /><br />";
+					}
+				}
+				else {
+					if(a=='') {
+						document.getElementById('a').style.background = 'rgba(255,0,0,0.1)';
+					}
+					else {
+						document.getElementById('a').style.background = 'rgb(255,255,255)';
+					}
+					
+					if(b=='') {
+						document.getElementById('b').style.background = 'rgba(255,0,0,0.1)';
+					}
+					else {
+						document.getElementById('b').style.background = 'rgb(255,255,255)';
+					}
+					
+					if(c=='') {
+						document.getElementById('c').style.background = 'rgba(255,0,0,0.1)';
+					}
+					else {
+						document.getElementById('c').style.background = 'rgb(255,255,255)';
+					}
+				}
+			}
+		</script>
+		<div>
+			<span id="error"></span>
+			<span id="x1"></span>
+			<span id="x2"></span>
+		</div>
+		<form method="post" name="form" id="form">
+			<label for="a">a:</label>
+			<input type="number" id="a" name="a" placeholder="a" /><br />
+			<label for="b">b:</label>
+			<input type="number" id="b" name="b" placeholder="b" /><br />
+			<label for="c">c:</label>
+			<input type="number" id="c" name="c" placeholder="c" /><br /><br />
+			<input type="button" id="button" name="button" value="Count!" onclick="equation()" />
+		</form>
+	</body>
+</html>
